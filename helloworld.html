@@ -1,0 +1,62 @@
+<head>
+  <title>helloworld</title>
+</head>
+
+<body>
+  {{> header}}
+  {{> articles}}
+  {{> footer}}
+</body>
+
+<template name="header">
+  <header>
+    I'm header.
+  </header>
+</template>
+
+<template name="articles">
+  <div>
+    {{author.name}}
+    {{author.age}}
+    {{author.location}}
+  </div>
+
+  <div>
+    {{#with author}}
+      {{name}}
+      {{age}}
+      {{location}}
+    {{/with}}
+  </div>
+
+  <ul>
+    {{#each articles}}
+      {{> articleItem}}
+      {{> authorItem author}}
+    {{/each}}
+  </ul>
+
+  <article>
+    I'm an article.
+  </article>
+</template>
+
+<template name="authorItem">
+  <li>
+    {{name}} is
+    {{age}} years old and lives in
+    {{location}}.
+  </li>
+</template>
+
+<template name="articleItem">
+  <li>
+    <a href="{{url}}">{{title}}</a>
+  </li>
+</template>
+
+<template name="footer">
+  <footer>
+    I'm footer.
+  </footer>
+</template>
